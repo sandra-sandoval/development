@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "Department": "CSCI",
+    "num": 1300,
+    "Title": "User Interface and User Experience",
+    "WRIT": "False",
+    "Rating": 3.71
+  },
+  {
+    "id": 2,
+    "Department": "CSCI",
+    "num": 150,
+    "Title": "Introduction to Object-Oriented Programming",
+    "WRIT": "False",
+    "Rating": 4.19
+  },
+  {
+    "id": 3,
+    "Department": "HIST",
+    "num": 250,
+    "Title": "Colonial Latin America",
+    "WRIT": "True",
+    "Rating": 4.05
+  },
+  {
+    "id": 4,
+    "Department": "CSCI",
+    "num": 1805,
+    "Title": "Computers, Freedom, and Privacy",
+    "WRIT": "True",
+    "Rating": 3.76
+  },
+  {
+    "id": 5,
+    "Department": "APMA",
+    "num": 1650,
+    "Title": "Statistical Inference",
+    "WRIT": "False",
+    "Rating": 3.24
+  },
+  {
+    "id": 6,
+    "Department": "HIST",
+    "num": 233,
+    "Title": "Colonial Latin America",
+    "WRIT": "False",
+    "Rating": 3.83
+  },
+  {
+    "id": 7,
+    "Department": "BIOL",
+    "num": 470,
+    "Title": "Genetics",
+    "WRIT": "False",
+    "Rating": 3.79
+  },
+  {
+    "id": 8,
+    "Department": "BIOL",
+    "num": 1575,
+    "Title": "Evaluation of Health Information Systems",
+    "WRIT": "True",
+    "Rating": 3.79
+  },
+  {
+    "id": 9,
+    "Department": "CSCI",
+    "num": 1410,
+    "Title": "Artifical Intelligence",
+    "WRIT": "False",
+    "Rating": 3
+  },
+  {
+    "id": 10,
+    "Department": "ECON",
+    "num": 110,
+    "Title": "Principles of Economics",
+    "WRIT": "False",
+    "Rating": 3.56
+  },
+  {
+    "id": 11,
+    "Department": "HISP",
+    "num": 650,
+    "Title": "Advanced Spanish Through Literature & Film",
+    "WRIT": "True",
+    "Rating": 4.48
+  },
+  {
+    "id": 12,
+    "Department": "CHEM",
+    "num": 360,
+    "Title": "Organic Chemistry",
+    "WRIT": "False",
+    "Rating": 2.9
+  }
+]
