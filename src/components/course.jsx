@@ -9,7 +9,7 @@ const CourseCard = ({ course, onFavoriteToggle }) => {
       {/* <p>Professor: {professor}</p> */}
       <p>Department: {Department}</p>
       <p>Course #: {num}</p>
-      <p> WRIT : {WRIT ? "True" : "False"}</p>
+      <p> WRIT : {WRIT}</p>
       <p>Rating: {Rating}</p>
       <button onClick={() => onFavoriteToggle(course.id)}>
         {favorite ? "Remove from Favorites" : "Add to Favorites"}
