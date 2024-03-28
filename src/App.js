@@ -5,12 +5,35 @@ import "./App.css";
 
 const CourseSearchApp = () => {
   const [courses, setCourses] = useState(courseData);
-  // const [updated, setUpdate] = useState([]);
   const [original, setOriginal] = useState(courseData);
   const [favorites, setFavorites] = useState([]);
   const [departmentFilter, setDepartmentFilter] = useState("All");
   const [writ, setWrit] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (searchQuery.length > 0) {
+      const searched = courses.filter((course) =>
+        course.Title.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setCourses(searched);
+    } else if (searchQuery === "") {
+      setCourses(original);
+    }
+  };
+  // const searchedCourse = () => {
+  //   const searchResult = courses.filter((course) =>
+  //     course.Title.toLowerCase().includes(searchQuery.toLowerCase())
+  //   );
+  //   // setCourses(searchResult)
+  //   return searchResult;
+  // };
   // const toggleFavoriteCourse = (courseId) => {
   //   const updatedCourses = courses.map((course) =>
   //     course.id === courseId
@@ -65,24 +88,7 @@ const CourseSearchApp = () => {
       setCourses(filterWrit);
     }
   };
-  // const mergeCourses = () => {
-  //   const allCourses = [...courses, ...favorites];
-  //   // console.log("courses"   ...courses );
-  //   console.log({ ...favorites });
-
-  //   return allCourses;
-  // };
   const clearFavorites = () => {
-    // const favoriteCourses = courses.filter((course) => course.favorite);
-    // setCourses(courses, ...favoriteCourses);
-    // setCourses((courses) => [...courses, "hello"]);
-    // let updated = [];
-    // console.log(courses);
-    // const update = courses.filter((course) => course.favorite === true);
-    // updated.push(...update);
-    // updated.push(...courses);
-    // console.log(updated);
-    // setCourses(updated);
     setCourses(original);
     setFavorites([]);
   };
@@ -90,42 +96,8 @@ const CourseSearchApp = () => {
     setCourses(original);
     setDepartmentFilter("All");
     setWrit("All");
+    setSearchQuery("");
   };
-  // const handleFilter = (e, category) => {
-  //   if (category === "dept") {
-  //     const selectedDept =
-  //       departmentFilter === "All" ? e.target.value : departmentFilter;
-  //     setDepartmentFilter(selectedDept);
-  //   }
-  //   if (category === "writ") {
-  //     const selectedWrit = writ === "All" ? e.target.value : writ;
-  //     setWrit(selectedWrit);
-  //   }
-
-  //   // console.log({ selectedDept });
-  //   // console.log({ selectedWrit });
-
-  //   let filteredCourses = original;
-
-  //   if (departmentFilter !== "All") {
-  //     filteredCourses = filteredCourses.filter(
-  //       (course) => course.Department === departmentFilter
-  //     );
-  //   }
-
-  //   if (writ !== "All") {
-  //     filteredCourses = filteredCourses.filter(
-  //       (course) => course.WRIT === (writ === "True")
-  //     );
-  //   }
-
-  //   setCourses(filteredCourses);
-  // };
-
-  // useEffect(() => {
-  //   handleFilter();
-  // }, [departmentFilter, writ]);
-
   return (
     <div>
       <h1>Course Manager</h1>
@@ -150,7 +122,16 @@ const CourseSearchApp = () => {
             <option value={"False"}>False</option>
           </select>
         </div>
-        <button onClick={resetFilters}>Reset Filters</button>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Search by Title"
+            value={searchQuery}
+            onChange={handleSearch}
+          />
+          <button type="submit">Search</button>
+        </form>
+        <button onClick={resetFilters}>Reset All</button>
       </div>
       <div className="course-list">
         {/* filtering out the favorited courses from the course list display */}
