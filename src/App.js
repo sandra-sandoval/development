@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import CourseCard from "./components/course"; // Importing CourseCard component
+// import CourseCard from "./components/course.jsx";
 import courseData from "./assets/courseData.json";
+import CourseList from "./components/course-list";
+import FavoritesList from "./components/favorites-list";
 import "./App.css";
 
 const CourseSearchApp = () => {
@@ -133,58 +135,18 @@ const CourseSearchApp = () => {
         </form>
         <button onClick={resetFilters}>Reset All</button>
       </div>
-      <div className="course-list">
-        {/* filtering out the favorited courses from the course list display */}
-        {courses
-          .filter((course) => !course.favorite)
-          .map((course) => (
-            <CourseCard
-              key={course.id}
-              course={course}
-              onFavoriteToggle={toggleFavoriteCourse}
-            />
-          ))}
-        {/* {courses.map((course) => (
-          <CourseCard
-            key={course.id}
-            course={course}
-            onFavoriteToggle={toggleFavoriteCourse}
-          />
-        ))} */}
-        {/* <div className="filters">
-          <h2>Filter By Department</h2>
-          <select value={departmentFilter} onChange={handleDepartmentFilter}>
-            <option value={"All"}>All</option>
-            <option value={"CSCI"}>CSCI</option>
-            <option value={"BIOL"}>BIOL</option>
-            <option value={"CHEM"}>CHEM</option>
-            <option value={"HIST"}>HIST</option>
-            <option value={"APMA"}>APMA</option>
-            <option value={"HISP"}>HISP</option>
-          </select>
-        </div>
-        <div className="filters">
-          <h2>Filter by Writ</h2>
-          <select value={writ} onChange={handleWritFilter}>
-            <option value={"All"}>All</option>
-            <option value={"True"}>True</option>
-            <option value={"False"}>False</option>
-          </select>
-        </div>
-        <button onClick={resetFilters}>Reset Filters</button> */}
+      <div>
+        <CourseList
+          courses={courses}
+          toggleFavoriteCourse={toggleFavoriteCourse}
+        ></CourseList>
       </div>
       <div>
-        <h2>Favorited Courses</h2>
-        <div className="favorite-list">
-          {favorites.map((course) => (
-            <CourseCard
-              key={course.id}
-              course={course}
-              onFavoriteToggle={toggleFavoriteCourse}
-            />
-          ))}
-        </div>
-        <button onClick={clearFavorites}>Clear Favorites</button>
+        <FavoritesList
+          favorites={favorites}
+          toggleFavoriteCourse={toggleFavoriteCourse}
+          clear={clearFavorites}
+        ></FavoritesList>
       </div>
     </div>
   );
