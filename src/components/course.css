@@ -1,0 +1,112 @@
+.course-card {
+  /* background-color: aqua; */
+
+  /* min-height: fit-content; */
+  margin: 1.5vw;
+  margin-bottom: 0.2vw;
+  padding-left: 2vw;
+  padding-bottom: 0.5vh;
+  padding-top: 0.5vh;
+
+  width: 12vw;
+  height: 23vh;
+  border-radius: 1vw;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  box-shadow: 0 0 10vw rgba(75, 75, 75, 0.15);
+  background: url("/Users/sandrasandoval/Desktop/cs1300/development/src/assets/notebook.png");
+  background-size: cover;
+  /* box-shadow: 0 0 5px -1px black, inset -1px 1px 2px rgba(255, 255, 255, 0.5);
+  margin: auto;
+  border-radius: 5px;
+  width: 389px;
+  height: 500px; */
+}
+/* .course-card {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.course-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -10px;
+  width: 10px;
+  height: 100%;
+  background-color: #f8f9fa;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.course-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 10px;
+  height: 100%;
+  background-color: #f8f9fa;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.spiral {
+  position: absolute;
+  top: 20px;
+  left: -15px;
+  width: 30px;
+  height: 200px;
+  background: linear-gradient(to bottom, #fff 50%, #ccc 50%);
+  background-size: 100% 20px;
+  border-radius: 0 50% 50% 0;
+  z-index: -1;
+} */
+.course-card h2 {
+  /* font-family: fantasy; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 1.7vh;
+}
+.course-card h3 {
+  font-size: 1.7vh;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.course-card p {
+  font-size: 1.5vh;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  /* margin-left: 1vw; */
+}
+
+.course {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* justify-items: center; */
+}
+.favorite-button button {
+  height: 2.5vh;
+  width: 5vw;
+  border-radius: 0.3vw;
+  padding: auto;
+  font-size: 1.7vh;
+  border-width: 0.1vw;
+}
+@media screen and (width <= 650px) {
+  .course-card {
+    width: 30vw;
+    margin-left: 2vw;
+    padding-left: 7vw;
+  }
+  .favorite-button button {
+    width: 15vw;
+    height: 3vh;
+  }
+}

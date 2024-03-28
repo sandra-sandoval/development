@@ -11,15 +11,15 @@
     "id": 2,
     "Department": "CSCI",
     "num": 150,
-    "Title": "Introduction to Object-Oriented Programming",
+    "Title": "Object-Oriented Programming",
     "WRIT": "False",
     "Rating": 4.19
   },
   {
     "id": 3,
     "Department": "HIST",
-    "num": 250,
-    "Title": "Colonial Latin America",
+    "num": 202,
+    "Title": "African Experiences of Empire",
     "WRIT": "True",
     "Rating": 4.05
   },
