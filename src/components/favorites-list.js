@@ -2,8 +2,8 @@ import React from "react";
 import CourseCard from "./course.jsx";
 const FavoritesList = ({ favorites, toggleFavoriteCourse, clear }) => {
   return (
-    <div>
-      <h2>Favorited Courses</h2>
+    <div className="favorites-container">
+      <h2 id="Label">Favorited Courses</h2>
       <div className="favorite-list">
         {favorites.map((course) => (
           <CourseCard

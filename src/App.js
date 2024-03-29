@@ -3,6 +3,9 @@ import React, { useState, useEffect } from "react";
 import courseData from "./assets/courseData.json";
 import CourseList from "./components/course-list";
 import FavoritesList from "./components/favorites-list";
+import TitleSearch from "./components/search-query";
+import FilterByWrit from "./components/filter-writ";
+import FilterByDept from "./components/filter-dept";
 import "./App.css";
 
 const CourseSearchApp = () => {
@@ -10,9 +13,30 @@ const CourseSearchApp = () => {
   const [original, setOriginal] = useState(courseData);
   const [favorites, setFavorites] = useState([]);
   const [departmentFilter, setDepartmentFilter] = useState("All");
-  const [writ, setWrit] = useState([]);
+  const [writFilter, setWrit] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [sortValue, setSortValue] = useState([]);
 
+  const handleSortClicked = (e) => {
+    const selectedSortOrder = e.target.value;
+    setSortValue(selectedSortOrder);
+  };
+
+  const handleSort = () => {
+    const sortedCourses = courses.slice().sort((course1, course2) => {
+      if (sortValue === "asc") {
+        return course1 - course2;
+      } else return course2 - course1;
+    });
+    setCourses(sortedCourses);
+  };
+  const sortByRating = () => {
+    const sortedCourses = courses
+      .slice()
+      .sort((course1, course2) => course2.Rating - course1.Rating);
+    setCourses(sortedCourses);
+    console.log(courses);
+  };
   const handleSearch = (e) => {
     e.preventDefault();
     setSearchQuery(e.target.value);
@@ -29,29 +53,6 @@ const CourseSearchApp = () => {
       setCourses(original);
     }
   };
-  // const searchedCourse = () => {
-  //   const searchResult = courses.filter((course) =>
-  //     course.Title.toLowerCase().includes(searchQuery.toLowerCase())
-  //   );
-  //   // setCourses(searchResult)
-  //   return searchResult;
-  // };
-  // const toggleFavoriteCourse = (courseId) => {
-  //   const updatedCourses = courses.map((course) =>
-  //     course.id === courseId
-  //       ? { ...course, favorite: !course.favorite }
-  //       : course
-  //   );
-
-  //   console.log({ updatedCourses });
-
-  //   const updateFavorites = updatedCourses.filter((course) => course.favorite);
-  //   setFavorites(updateFavorites);
-
-  //   console.log({ updateFavorites });
-  //   const updateCourses = updatedCourses.filter((course) => !course.favorite);
-  //   setCourses(updateCourses);
-  // };
   const toggleFavoriteCourse = (courseid) => {
     const updatedCourses = courses.map((course) =>
       course.id === courseid
@@ -104,50 +105,43 @@ const CourseSearchApp = () => {
     <div>
       <h1>Course Manager</h1>
       <div id="filters-container">
-        <div className="filter">
-          <h2>Filter By Department</h2>
-          <select value={departmentFilter} onChange={handleDepartmentFilter}>
-            <option value={"All"}>All</option>
-            <option value={"CSCI"}>CSCI</option>
-            <option value={"BIOL"}>BIOL</option>
-            <option value={"CHEM"}>CHEM</option>
-            <option value={"HIST"}>HIST</option>
-            <option value={"APMA"}>APMA</option>
-            <option value={"HISP"}>HISP</option>
+        <FilterByDept
+          departmentFilter={departmentFilter}
+          handleDepartmentFilter={handleDepartmentFilter}
+        ></FilterByDept>
+        <FilterByWrit
+          writFilter={writFilter}
+          handleWritFilter={handleWritFilter}
+        ></FilterByWrit>
+        <TitleSearch
+          handleSubmit={handleSubmit}
+          searchQuery={searchQuery}
+          handleSearch={handleSearch}
+        ></TitleSearch>
+        {/* <select value={sortValue} onChange={handleSort}>
+          <option value={"Ascending"}>Ascending</option>
+          <option value={"Descending"}>Descending</option>
+        </select> */}
+        <button onClick={sortByRating}>Sort By Rating</button>
+        {/* <label>
+          Sort Order:
+          <select value={sortValue} onChange={handleSort}>
+            <option value={"asc"}>Ascending</option>
+            <option value={"desc"}>Descending</option>
           </select>
-        </div>
-        <div className="filter">
-          <h2>Filter by Writ</h2>
-          <select value={writ} onChange={handleWritFilter}>
-            <option value={"All"}>All</option>
-            <option value={"True"}>True</option>
-            <option value={"False"}>False</option>
-          </select>
-        </div>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Search by Title"
-            value={searchQuery}
-            onChange={handleSearch}
-          />
-          <button type="submit">Search</button>
-        </form>
+          <button onClick={handleSortClicked}> Sort</button>
+        </label> */}
         <button onClick={resetFilters}>Reset All</button>
       </div>
-      <div>
-        <CourseList
-          courses={courses}
-          toggleFavoriteCourse={toggleFavoriteCourse}
-        ></CourseList>
-      </div>
-      <div>
-        <FavoritesList
-          favorites={favorites}
-          toggleFavoriteCourse={toggleFavoriteCourse}
-          clear={clearFavorites}
-        ></FavoritesList>
-      </div>
+      <CourseList
+        courses={courses}
+        toggleFavoriteCourse={toggleFavoriteCourse}
+      ></CourseList>
+      <FavoritesList
+        favorites={favorites}
+        toggleFavoriteCourse={toggleFavoriteCourse}
+        clear={clearFavorites}
+      ></FavoritesList>
     </div>
   );
 };

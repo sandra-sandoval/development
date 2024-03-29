@@ -73,6 +73,7 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
   font-size: 1.7vh;
+  padding-right: 2vw;
 }
 .course-card h3 {
   font-size: 1.7vh;
@@ -102,11 +103,12 @@
 @media screen and (width <= 650px) {
   .course-card {
     width: 30vw;
-    margin-left: 2vw;
-    padding-left: 7vw;
+    padding-left: 5vw;
+    padding-right: 3vw;
   }
+
   .favorite-button button {
-    width: 15vw;
+    width: 15vh;
     height: 3vh;
   }
 }
