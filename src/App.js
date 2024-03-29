@@ -16,20 +16,25 @@ const CourseSearchApp = () => {
   const [writFilter, setWrit] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortValue, setSortValue] = useState([]);
+  const [favoriteOpen, setFavoriteOpen] = useState(false);
 
-  const handleSortClicked = (e) => {
-    const selectedSortOrder = e.target.value;
-    setSortValue(selectedSortOrder);
+  // const handleSortClicked = (e) => {
+  //   const selectedSortOrder = e.target.value;
+  //   setSortValue(selectedSortOrder);
+  // };
+
+  // const handleSort = () => {
+  //   const sortedCourses = courses.slice().sort((course1, course2) => {
+  //     if (sortValue === "asc") {
+  //       return course1 - course2;
+  //     } else return course2 - course1;
+  //   });
+  //   setCourses(sortedCourses);
+  // };
+  const toggleFavoriteOpen = () => {
+    setFavoriteOpen(!favoriteOpen);
   };
 
-  const handleSort = () => {
-    const sortedCourses = courses.slice().sort((course1, course2) => {
-      if (sortValue === "asc") {
-        return course1 - course2;
-      } else return course2 - course1;
-    });
-    setCourses(sortedCourses);
-  };
   const sortByRating = () => {
     const sortedCourses = courses
       .slice()
@@ -103,45 +108,59 @@ const CourseSearchApp = () => {
   };
   return (
     <div>
-      <h1>Course Manager</h1>
-      <div id="filters-container">
-        <FilterByDept
-          departmentFilter={departmentFilter}
-          handleDepartmentFilter={handleDepartmentFilter}
-        ></FilterByDept>
-        <FilterByWrit
-          writFilter={writFilter}
-          handleWritFilter={handleWritFilter}
-        ></FilterByWrit>
-        <TitleSearch
-          handleSubmit={handleSubmit}
-          searchQuery={searchQuery}
-          handleSearch={handleSearch}
-        ></TitleSearch>
-        {/* <select value={sortValue} onChange={handleSort}>
-          <option value={"Ascending"}>Ascending</option>
-          <option value={"Descending"}>Descending</option>
-        </select> */}
-        <button onClick={sortByRating}>Sort By Rating</button>
-        {/* <label>
-          Sort Order:
-          <select value={sortValue} onChange={handleSort}>
-            <option value={"asc"}>Ascending</option>
-            <option value={"desc"}>Descending</option>
-          </select>
-          <button onClick={handleSortClicked}> Sort</button>
-        </label> */}
-        <button onClick={resetFilters}>Reset All</button>
-      </div>
-      <CourseList
-        courses={courses}
-        toggleFavoriteCourse={toggleFavoriteCourse}
-      ></CourseList>
-      <FavoritesList
-        favorites={favorites}
-        toggleFavoriteCourse={toggleFavoriteCourse}
-        clear={clearFavorites}
-      ></FavoritesList>
+      <header>
+        <h1>Course Manager</h1>
+        <section id="navigation">
+          <TitleSearch
+            handleSubmit={handleSubmit}
+            searchQuery={searchQuery}
+            handleSearch={handleSearch}
+          ></TitleSearch>
+          <button id="favorite-button" onClick={toggleFavoriteOpen}>
+            {favoriteOpen ? "Hide Favorites" : "View Favorites"}
+          </button>
+        </section>
+      </header>
+      {/* <nav>
+        <section id="navigation">
+          <TitleSearch
+            handleSubmit={handleSubmit}
+            searchQuery={searchQuery}
+            handleSearch={handleSearch}
+          ></TitleSearch>
+          <button id="favorite-button" onClick={toggleFavoriteOpen}>
+            {favoriteOpen ? "Hide Favorites" : "View Favorites"}
+          </button>
+        </section>
+      </nav> */}
+      <body>
+        <section id="side-bar">
+          {/* <div id="filters-container"> */}
+          <FilterByDept
+            departmentFilter={departmentFilter}
+            handleDepartmentFilter={handleDepartmentFilter}
+          ></FilterByDept>
+          <FilterByWrit
+            writFilter={writFilter}
+            handleWritFilter={handleWritFilter}
+          ></FilterByWrit>
+          <button onClick={sortByRating}>Sort By Rating</button>
+
+          <button onClick={resetFilters}>Reset All</button>
+          {/* </div> */}
+        </section>
+        <CourseList
+          courses={courses}
+          toggleFavoriteCourse={toggleFavoriteCourse}
+        ></CourseList>
+      </body>
+      {favoriteOpen && (
+        <FavoritesList
+          favorites={favorites}
+          toggleFavoriteCourse={toggleFavoriteCourse}
+          clear={clearFavorites}
+        />
+      )}
     </div>
   );
 };
