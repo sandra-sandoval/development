@@ -1,8 +1,8 @@
 import React from "react";
 import CourseCard from "./course.jsx";
-const CourseList = ({ courses, toggleFavoriteCourse }) => {
+const CourseList = ({ courses, toggleFavoriteCourse, viewMode }) => {
   return (
-    <div className="course-list">
+    <div className={viewMode === "list" ? "course-list" : "list-view"}>
       {courses
         .filter((course) => !course.favorite)
         .map((course) => (
@@ -10,6 +10,7 @@ const CourseList = ({ courses, toggleFavoriteCourse }) => {
             key={course.id}
             course={course}
             onFavoriteToggle={toggleFavoriteCourse}
+            viewMode={viewMode}
           />
         ))}
     </div>

@@ -16,13 +16,24 @@ h2 {
   font-size: 1.5vw;
 }
 .course-list,
-.favorite-list {
+.favorite-list,
+.grid-container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   width: 80vw;
   padding-bottom: 1vh;
 }
+.grid-container {
+  background-color: #0056b3;
+}
+.list-container {
+  margin-left: 2vw;
+}
+
+/* .list-container {
+  background-color: aqua;
+} */
 
 #filters-container {
   display: flex;

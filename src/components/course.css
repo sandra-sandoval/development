@@ -6,7 +6,7 @@
   padding-top: 0.5vh;
 
   width: 12vw;
-  height: 23vh;
+  height: 26vh;
   border-radius: 1vw;
   align-items: center;
   justify-content: center;
@@ -15,7 +15,11 @@
   background: url("/Users/sandrasandoval/Desktop/cs1300/development/src/assets/notebook.png");
   background-size: cover;
 }
-
+.course-list h2 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5vh;
+  margin-right: 2vw;
+}
 .course-card h2 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
@@ -40,6 +44,11 @@
 .course button {
   padding: 0;
   margin: 0;
+}
+.list-container {
+  justify-content: center;
+  flex-direction: row;
+  display: flex;
 }
 .favorite-button button {
   height: 2.5vh;

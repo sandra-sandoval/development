@@ -2,15 +2,22 @@ import React from "react";
 import "./course.css";
 // import "/Users/sandrasandoval/Desktop/cs1300/development/src/components/course.css";
 
-const CourseCard = ({ course, onFavoriteToggle }) => {
+const CourseCard = ({ course, onFavoriteToggle, viewMode }) => {
   const { Title, Department, num, WRIT, Rating, favorite } = course;
 
   return (
-    <div className="course">
-      <div className="course-card">
+    <div className={viewMode === "list" ? "course" : "list-container"}>
+      <div className={viewMode === "list" ? "course-card" : "course-list"}>
         <h2>{Title}</h2>
-        {/* <p>Professor: {professor}</p> */}
-        <p>
+        {viewMode === "list" && (
+          <div className="course-details">
+            <p>Department: {Department}</p>
+            <p>Course #: {num}</p>
+            <p> WRIT : {WRIT}</p>
+            <p>Rating: {Rating}</p>
+          </div>
+        )}
+        {/* <p>
           <span span style={{ fontWeight: "bold" }}>
             {" "}
             Department:
@@ -38,7 +45,7 @@ const CourseCard = ({ course, onFavoriteToggle }) => {
             Rating:
           </span>{" "}
           {Rating}
-        </p>
+        </p> */}
       </div>
       <div className="favorite-button">
         <button onClick={() => onFavoriteToggle(course.id)}>

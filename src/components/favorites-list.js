@@ -1,6 +1,11 @@
 import React from "react";
 import CourseCard from "./course.jsx";
-const FavoritesList = ({ favorites, toggleFavoriteCourse, clear }) => {
+const FavoritesList = ({
+  favorites,
+  toggleFavoriteCourse,
+  clear,
+  viewMode,
+}) => {
   return (
     <div className="favorites-container">
       <h2 id="Label">Favorited Courses</h2>
@@ -10,6 +15,7 @@ const FavoritesList = ({ favorites, toggleFavoriteCourse, clear }) => {
             key={course.id}
             course={course}
             onFavoriteToggle={toggleFavoriteCourse}
+            viewMode={viewMode}
           />
         ))}
       </div>
