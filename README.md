@@ -1,6 +1,6 @@
 # Course Manager Details
 
-Link to Deployed Web-App: https://course-manager-8dky6eqp0-sandras-projects-c89bb756.vercel.app/
+Link to Deployed Web-App: https://course-manager-5jqoft3l8-sandras-projects-c89bb756.vercel.app
 
 ## How to Run
 
