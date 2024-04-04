@@ -3,6 +3,9 @@
 }
 header {
   background-color: rgb(237, 194, 227);
+  /* background-color: #dea393; */
+  /* background-color: #c69092; */
+  /* background-color: rgb(255, 168, 131); */
   width: 100vw;
   display: flex;
   flex-direction: row;
@@ -92,6 +95,7 @@ footer {
 body {
   display: flex;
   flex-direction: row;
+  background-color: beige;
 }
 
 .filter {
@@ -123,12 +127,12 @@ body {
 
 .filter select,
 #side-bar button {
-  width: 5.9vw;
-  height: 4vh;
+  width: 6vw;
+  height: 6vh;
   padding: 0.5vw;
   border-radius: 0.5vw;
   border: 1px solid #ccc;
-  font-size: 0.7vw;
+  font-size: 0.9vw;
   border-color: #c164a5;
   border-width: 0.15vw;
 }

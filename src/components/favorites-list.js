@@ -8,7 +8,7 @@ const FavoritesList = ({
 }) => {
   return (
     <div className="favorites-container">
-      <h2 id="Label">Favorited Courses</h2>
+      <h2 id="Label">Favorited Courses : {favorites.length}</h2>
       <div className="favorite-list">
         {favorites.map((course) => (
           <CourseCard

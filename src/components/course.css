@@ -18,6 +18,10 @@
   background-size: cover;
   box-shadow: 5px 3px 20px #876d81;
 }
+.course-details {
+  margin-bottom: 1vh;
+}
+
 .course-list h2 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1.5vh;
@@ -26,15 +30,15 @@
 .course-card h2 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
-  font-size: 1.7vh;
-  padding-right: 2vw;
+  font-size: 1.9vh;
+  padding-right: 1vw;
 }
 .course-card h3 {
   font-size: 1.7vh;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 .course-card p {
-  font-size: 1.5vh;
+  font-size: 1.9vh;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 img {
