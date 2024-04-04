@@ -14,7 +14,7 @@
   justify-self: center;
   align-self: center;
   box-shadow: 0 0 10vw rgba(75, 75, 75, 0.15);
-  background: url("/Users/sandrasandoval/Desktop/cs1300/development/src/assets/notebook.png");
+  background: url("./notebook.png");
   background-size: cover;
   box-shadow: 5px 3px 20px #876d81;
 }
