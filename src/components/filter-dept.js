@@ -4,7 +4,11 @@ const FilterByDept = ({ departmentFilter, handleDepartmentFilter }) => {
   return (
     <div className="filter">
       <h2>Filter By Department</h2>
-      <select value={departmentFilter} onChange={handleDepartmentFilter}>
+      <select
+        value={departmentFilter}
+        onChange={handleDepartmentFilter}
+        aria-label="Filter DropDown"
+      >
         <option value={"All"}>All</option>
         <option value={"CSCI"}>CSCI</option>
         <option value={"BIOL"}>BIOL</option>
